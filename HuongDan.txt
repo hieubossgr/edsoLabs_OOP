@@ -1,0 +1,48 @@
+Chương trình sử dụng Java Swing để tạo giao diện đơn giản
+Giao diện gồm 3 tab: Conversation Manager; Call Manager và Thống kê
+- Giao diện Conversation manager:
+   - Gồm những chức năng:
+	- Add Conversation:
+	   - Khi click vào "Ađ Conversation" thì một giá trị Conversation Id được tạo tự động. Và bạn sẽ phải nhập "Channel Id" là kênh mà Conversation sẽ mở
+	   - Sau khi nhập Channel Id xong thì click "Submit" để hiện lên trên bảng Table
+	   - Channel Id sẽ có dạng số int. Nếu nhập sai định dạng thì sẽ thông báo một message lỗi định dạng
+	   - Chú ý: Nút Submit chỉ đưa dữ liệu lên trên bảng Table chứ chưa lưu vào file
+	- Delete Conversation:
+	   - Phải chọn một hàng nào đó trên bảng Table rồi mới được click
+	   - Nếu chưa chọn hàng nào thì nó sẽ thống báo message chưa chọn hàng để xóa
+	   - Khi chọn thì nó sẽ xóa luôn thông tin trên file đồng thời nó sẽ tìm những Cuộc gọi có trong Conversation này và xóa nó luôn
+	- Save file:
+	   - Chức năng này sẽ lưu những thông tin hiện trên bảng Table để lưu vào file
+	   - Sau khi submit, delete mà muốn lưu thì click vào "Save file"
+	- Display:
+	   - Hiển thị thông tin của file lên bảng Table
+	- Update:
+	   - Trường hợp khi mình tạo conversation và chưa có cuộc gọi nào trong đó sau đó mình lưu vào file thì trong file sẽ chỉ có thông tin của các trường Conversation Id và Channel Id, các trường khác đều = -1 (Coi như chưa có cuộc gọi nào)
+	   - Khi mình sang bên giao diện Call Manager vào tạo một cuộc gọi có Channel Id giống với bên Chainel Id trong Conversation thì khi đó quay lại nhấn nút "Update" thì Conversation đó sẽ được bổ sung thông tin về Call Id, Call type,...
+	   - Chú ý: Sau khi tạo cuộc gọi bên Call Manager thì phải Save file thì bên Conversation Manager mới có thể update
+	- Find by Call Id: Nhập call Id và nó sẽ tìm kiếm thông tin các Conversation theo Call ID
+	- Find by conversation: Nhập Id conversation và nó sẽ tìm kiếm các Conversation theo Conversation Id
+	
+- Giao diện Call Manager:
+   - Gồm những chức năng:
+	- Add Call:
+	   - Tạo một cuộc gọi, Call Id sẽ được tự động tạo, Nhập ChannelId và chọn kiểu Call Type và Conversation type
+	   - Nếu Conversation Type ở dạng Conference thì có thể thêm số lượng cuộc gọi tùy ý
+	   - Nếu Conversation Type ở dạng Normal Conference thì chỉ có thể tồn tại 2 cuộc gọi trong cùng 1 Channel Id
+		- 1 Cuộc gọi phải là cuộc gọi vào(Call Type: Gọi vào)
+		- 1 cuộv gọi phải là cuộc gọi ra(Call Type: Gọi ra)
+		- Nếu không đúng sẽ báo lỗi. Không được thêm
+	- Delete Call:
+	   - Phải chọn một hàng nào đó trên bảng Table rồi mới được click
+	   - Nếu chưa chọn hàng nào thì nó sẽ thống báo message chưa chọn hàng để xóa
+	   - Chú ý: Khi nhấn nút "Delete Call" thì nó cũng chỉ xóa trên bảng Table chưa xóa trong file. Sau khi chọn Delete Call thì chọn save file để nó lưu lại trong file
+	- Save file: Tương tự như giao diện Conversation Manager - Lưu thông tin Table về file
+	- Display: Tương tự như giao diện Conversation Manager - Hiển thị thông tin file lên Table
+	- Find by Call Id: Nhập call Id và nó sẽ tìm kiếm thông tin theo Call ID
+	- Find by Channel Id: Nhập Channel Id và nó sẽ tìm kiếm theo Channel ID
+
+Giao diện thống kê:
+  - Có 3 Label thống kê và 3 nút "Submit" tương ứng với mỗi label
+	- Thống kê Conversation: Liệt kê ra số lượng Conversation trong hệ thống
+	- Thống kê Call: Liệt kê ra số lượng Call trong hệ thống
+	- Thống kê Call Of Conversation: Nhập Conversation ID Rồi tính ra số cuộc gọi trong Conversation ID đó
