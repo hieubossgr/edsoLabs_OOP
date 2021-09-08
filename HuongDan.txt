@@ -46,3 +46,11 @@ Giao diện thống kê:
 	- Thống kê Conversation: Liệt kê ra số lượng Conversation trong hệ thống
 	- Thống kê Call: Liệt kê ra số lượng Call trong hệ thống
 	- Thống kê Call Of Conversation: Nhập Conversation ID Rồi tính ra số cuộc gọi trong Conversation ID đó
+
+Mô hình:
+	- Thực hiện theo mô hình MVC
+	- Trong package Controller: chứa class IOFile.java với mục đích đọc và ghi file
+	- Trong package Model: chứa 2 class: 
+		- Call.java chứa thông tin của cuộc gọi
+		- Conversation.java chứa thông tin của cuộc trò chuyện
+	- Trong package View: Chứa các giao diện Jframe Form là giao diện chính chứa 3 giao diện Jpanel Form tương ứng là FormCall, FormConversation, FormThongKe
